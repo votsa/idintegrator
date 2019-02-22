@@ -1,35 +1,36 @@
 version: '3.3'
 
 services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - ./wp-data:/docker-entrypoint-initdb.d
-      - db_data:/var/lib/mysql
-    ports:
-      - "${DB_PORT}:${DB_PORT}"
-    restart: always
-    environment:
-      MYSQL_DATABASE: "${DB_NAME}"
-      MYSQL_USER: "${DB_USER}"
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-      MYSQL_PASSWORD: "${DB_ROOT_PASSWORD}"
-
-  wordpress:
-    depends_on:
-      - db
+  wp:
     image: wordpress:latest
+    ports:
+      - ${IP}:8000:80
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html
     environment:
-    ports:
-      - "8000:80"
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: "db:${DB_PORT}"
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: "${DB_NAME}"
       WORDPRESS_DB_USER: "${DB_USER}"
       WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
-      WORDPRESS_DB_NAME: "${DB_NAME}"
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
+    ports:
+      - ${IP}:3306:3306
+    command: [
+        '--default_authentication_plugin=mysql_native_password',
+        '--character-set-server=utf8mb4',
+        '--collation-server=utf8mb4_unicode_ci'
+    ]
+    volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+
 volumes:
   db_data:
