@@ -7,6 +7,7 @@ services:
       - "${IP}:80:80"
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./config/apache-vhost.conf:/etc/apache2/sites-enabled/000-default.conf
       - ./wp-app:/var/www/html
     environment:
       WORDPRESS_DB_HOST: db
