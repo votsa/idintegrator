@@ -235,3 +235,33 @@ if ( ! function_exists( 'woocommerce_subcategory_thumbnail_url' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'woocommerce_product_get_image_url' ) ) {
+
+	/**
+	 * Returns the main product image.
+	 *
+	 * @param object product.
+	 * @param string $size (default: 'woocommerce_thumbnail').
+	 * @param array  $attr Image attributes.
+	 * @param bool   $placeholder True to return $placeholder if no image is found, or false to return an empty string.
+	 * @return string
+	 */
+	function woocommerce_product_get_image_url($product, $size = 'woocommerce_single', $attr = array(), $placeholder = true ) {
+		$image = '';
+		if ( $product->get_image_id() ) {
+			$image = wp_get_attachment_image_url( $product->get_image_id(), $size, false, $attr );
+		} elseif ( $product->get_parent_id() ) {
+			$parent_product = wc_get_product( $product->get_parent_id() );
+			if ( $parent_product ) {
+				$image = woocommerce_product_get_image($parent_product, $size, $attr, $placeholder );
+			}
+		}
+
+		if ( ! $image && $placeholder ) {
+			$image = wc_placeholder_img_src();
+		}
+
+		return $image;
+	}
+}

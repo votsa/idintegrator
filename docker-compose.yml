@@ -4,7 +4,7 @@ services:
   wp:
     image: wordpress:latest
     ports:
-      - "${IP}:80:80"
+      - "${IP}:8000:80"
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./config/apache-vhost.conf:/etc/apache2/sites-enabled/000-default.conf
@@ -28,7 +28,6 @@ services:
     ]
     volumes:
       - ./wp-data:/docker-entrypoint-initdb.d
-      - wp-data:/var/lib/mysql
       - db_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: "${DB_NAME}"

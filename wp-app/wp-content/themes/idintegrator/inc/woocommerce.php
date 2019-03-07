@@ -125,11 +125,13 @@ if ( ! function_exists( 'Id_integrator_woocommerce_product_columns_wrapper' ) ) 
 	 * @return  void
 	 */
 	function Id_integrator_woocommerce_product_columns_wrapper() {
-		$columns = Id_integrator_woocommerce_loop_columns();
-		echo '<div class="columns-' . absint( $columns ) . '">';
+		echo '<div class="product-wrapper">';
 	}
 }
 add_action( 'woocommerce_before_shop_loop', 'Id_integrator_woocommerce_product_columns_wrapper', 40 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
 
 if ( ! function_exists( 'Id_integrator_woocommerce_product_columns_wrapper_close' ) ) {
 	/**
@@ -148,6 +150,7 @@ add_action( 'woocommerce_after_shop_loop', 'Id_integrator_woocommerce_product_co
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 
 if ( ! function_exists( 'Id_integrator_woocommerce_wrapper_before' ) ) {
 	/**
@@ -160,15 +163,7 @@ if ( ! function_exists( 'Id_integrator_woocommerce_wrapper_before' ) ) {
 	function Id_integrator_woocommerce_wrapper_before() {
 		?>
 		<div class="container">
-			<div class="row">
-				<?php if ( get_theme_mod( 'default_sidebar_position', 'right' ) === 'no' ) : ?>
-					<div class="col-md-12 wp-bp-content-width">
-				<?php else : ?>
-					<div class="col-md-8 wp-bp-content-width">
-				<?php endif; ?>
-						<div id="primary" class="content-area">
-							<main id="main" class="site-main" role="main">
-								<div class="mt-3r">
+			<main class="site-main" role="main">
 		<?php
 	}
 }
@@ -184,30 +179,48 @@ if ( ! function_exists( 'Id_integrator_woocommerce_wrapper_after' ) ) {
 	 */
 	function Id_integrator_woocommerce_wrapper_after() {
 		?>
-								</div>
-							</main><!-- #main -->
-						</div><!-- #primary -->
-					</div>
-					<!-- /.col-md-8 -->
-
-					<?php if ( get_theme_mod( 'default_sidebar_position', 'right' ) != 'no' ) : ?>
-						<?php if ( get_theme_mod( 'default_sidebar_position', 'right' ) === 'right' ) : ?>
-							<div class="col-md-4 wp-bp-sidebar-width">
-						<?php elseif ( get_theme_mod( 'default_sidebar_position', 'right' ) === 'left' ) : ?>
-							<div class="col-md-4 order-md-first wp-bp-sidebar-width">
-						<?php endif; ?>
-								<?php get_sidebar( 'shop' ); ?>
-							</div>
-							<!-- /.col-md-4 -->
-					<?php endif; ?>
-				</div>
-				<!-- /.row -->
+				</main><!-- #main -->
 			</div>
 			<!-- /.container -->
 		<?php
 	}
 }
 add_action( 'woocommerce_after_main_content', 'Id_integrator_woocommerce_wrapper_after' );
+
+if ( ! function_exists( 'Id_integrator_woocommerce_template_loop_product_title' ) ) {
+
+	/**
+	 * Show the product title in the product loop. By default this is an H2.
+	 */
+	function Id_integrator_woocommerce_template_loop_product_title() {
+		echo '<h2 class="category-product-title">' . get_the_title() . '</h2>';
+	}
+}
+
+remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+add_action( 'woocommerce_shop_loop_item_title', 'Id_integrator_woocommerce_template_loop_product_title', 10 );
+
+if ( ! function_exists( 'Id_integrator_woocommerce_template_loop_category_title' ) ) {
+
+	/**
+	 * Show the subcategory title in the product loop.
+	 *
+	 * @param object $category Category object.
+	 */
+	function Id_integrator_woocommerce_template_loop_category_title( $category ) {
+		?>
+		<h2 class="category-title">
+			<?php
+				echo esc_html( $category->name );
+			?>
+		</h2>
+		<?php
+	}
+}
+
+remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+add_action( 'woocommerce_shop_loop_subcategory_title', 'Id_integrator_woocommerce_template_loop_category_title', 10 );
+
 
 /**
  * Sample implementation of the WooCommerce Mini Cart.
@@ -291,8 +304,8 @@ if ( ! function_exists( 'Id_integrator_woocommerce_header_cart' ) ) {
 
 
 // Add before / after for results & sort
-add_action( 'woocommerce_before_shop_loop', 'Id_integrator_woocommerce_before_sort_result', 19 );
-add_action( 'woocommerce_before_shop_loop', 'Id_integrator_woocommerce_after_sort_result', 31 );
+//add_action( 'woocommerce_before_shop_loop', 'Id_integrator_woocommerce_before_sort_result', 19 );
+//add_action( 'woocommerce_before_shop_loop', 'Id_integrator_woocommerce_after_sort_result', 31 );
 if ( ! function_exists( 'Id_integrator_woocommerce_before_sort_result' ) ) {
 	function Id_integrator_woocommerce_before_sort_result() {
 		?>
@@ -304,15 +317,6 @@ if ( ! function_exists( 'Id_integrator_woocommerce_after_sort_result' ) ) {
 	function Id_integrator_woocommerce_after_sort_result() {
 		?>
 		</div>
-		<?php
-	}
-}
-
-add_action( 'woocommerce_after_shop_loop_item', 'Id_integrator_woocommerce_after_shop_loop_item', 6 );
-if ( ! function_exists( 'Id_integrator_woocommerce_after_shop_loop_item' ) ) {
-	function Id_integrator_woocommerce_after_shop_loop_item() {
-		?>
-		<br>
 		<?php
 	}
 }
@@ -352,3 +356,10 @@ if ( ! function_exists( 'Id_integrator_add_product_gallery_class' ) ) {
 		return $classes;
 	}
 }
+
+// Custom
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+remove_action( 'woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10 );
