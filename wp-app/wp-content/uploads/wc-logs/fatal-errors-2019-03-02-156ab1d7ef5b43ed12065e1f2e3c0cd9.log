@@ -1,0 +1,4 @@
+2019-03-02T16:06:44+00:00 CRITICAL syntax error, unexpected 'ICL_LANGUAGE_CODE' (T_STRING), expecting '(' in /var/www/html/wp-content/themes/idintegrator/index.php on line 29
+
+2019-03-02T16:11:41+00:00 CRITICAL Object of class WP_Post could not be converted to string в /var/www/html/wp-content/themes/idintegrator/index.php на строке 31
+

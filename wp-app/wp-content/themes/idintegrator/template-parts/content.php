@@ -18,9 +18,9 @@
 		<header class="entry-header">
 			<?php
 			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title card-title h2">', '</h1>' );
+				the_title( '<h1 class="entry-title card-title">', '</h1>' );
 			else :
-				the_title( '<h2 class="entry-title card-title h3"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h2>' );
+				the_title( '<h2 class="entry-title card-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h2>' );
 			endif;
 
 			if ( 'post' === get_post_type() ) : ?>

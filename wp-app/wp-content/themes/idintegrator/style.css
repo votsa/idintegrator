@@ -1,52 +1,90 @@
-/*!
-Theme Name:
-Theme URI: https://bootstrap-wp.com
-Author: TwoPoints
-Author URI:
-Description: "" is a simple & easy to use WordPress theme. It is based on world's most popular framework for responsive websites, Twitter Bootstrap 4. "" is a perfect combination of Bootstrap 4 and WordPress. It is fast and light-weight with around 20 kb style.css. It is also search engine friendly. It has a built-in slider for featured posts on blog's home page. It supports all major & popular WordPress plugins like Jetpack, Contact Form 7, Elementor, Beaver Builder, SiteOrigin Page Builder etc. Check demo on https://bootstrap-wp.com
-Version: 1.0.9
-License: GNU General Public License v3 or later
-License URI: https://www.gnu.org/licenses/gpl.html
-Text Domain: id-integrator
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, two-columns, left-sidebar, right-sidebar, custom-colors, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, blog
+@charset "utf-8";
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
- is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-*/
-body {
-  background-color: #f8f9fa;
+@font-face {
+  font-family: "ProximaNova";
+  src: url("./assets/fonts/ProximaNova-Reg.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
 }
 
-hr {
-  background-color: #ccc;
-  border: 0;
-  height: 1px;
-  margin-bottom: 1.5em;
+@font-face {
+  font-family: "ProximaNovaLight";
+  src: url("./assets/fonts/ProximaNova-Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
 }
 
-dt {
+@font-face {
+  font-family: "ProximaNovaBold";
+  src: url("./assets/fonts/ProximaNova-Bold.otf") format("opentype");
+  font-style: normal;
   font-weight: bold;
 }
 
-dd {
-  margin: 0 1.5em 1.5em;
+html {
+  font-size: 42%;
+}
+
+body {
+  font-family: "ProximaNova", Arial, Helvetica, sans-serif;
+  color: #3b3b3b;
+  background-color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.4rem;
 }
 
 img {
-  height: auto; /* Make sure images are scaled correctly. */
-  max-width: 100%; /* Adhere to container width. */
+  height: auto;
+  max-width: 100%;
 }
 
-figure {
-  margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+a {
+  color: #2699fb;
 }
 
-table {
-  margin: 0 0 1.5em;
-  width: 100%;
+strong {
+  font-family: "ProximaNovaBold", Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "ProximaNovaBold", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 5rem;
+  margin-bottom: 2.4rem;
+}
+
+h2 {
+  font-size: 3rem;
+  line-height: 4rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-bottom: 1.8rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  margin-bottom: 1.8rem;
+}
+
+ol,
+ul,
+dl {
+  padding-left: 3rem;
+}
+
+.container {
+  max-width: 1190px;
 }
 
 /* Text meant only for screen readers. */
@@ -87,454 +125,6 @@ table {
   z-index: 100000; /* Above WP toolbar. */
 }
 
-/* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
-  outline: 0;
-}
-
-.alignleft {
-  display: inline;
-  float: left;
-  margin-right: 1.5em;
-}
-
-.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5em;
-}
-
-.aligncenter {
-  clear: both;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.footer:before,
-.footer:after {
-  content: "";
-  display: table;
-  table-layout: fixed;
-}
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.footer:after {
-  clear: both;
-}
-
-.widget {
-  margin: 0 0 1.5em; /* Make sure select elements fit in widgets. */
-}
-
-.widget select {
-  max-width: 100%;
-}
-
-.sticky {
-  display: block;
-}
-
-.hentry {
-  margin: 0 0 1.5em;
-}
-
-.updated:not(.published) {
-  display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-  margin: 1.5em 0 0;
-}
-
-.page-links {
-  clear: both;
-  margin: 0 0 1.5em;
-}
-
-.comment-content a {
-  word-wrap: break-word;
-}
-
-.bypostauthor {
-  display: block;
-}
-
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation,
-.infinite-scroll.neverending .footer {
-  /* Theme Footer (when set to scrolling) */
-  display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-.infinity-end.neverending .footer {
-  display: block;
-}
-
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-  border: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
-}
-
-/* Make sure embeds and iframes fit their containers. */
-embed,
-iframe,
-object {
-  max-width: 100%;
-}
-
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-  display: inline-block;
-}
-
-.wp-caption {
-  margin-bottom: 1.5em;
-  max-width: 100%;
-}
-
-.wp-caption img[class*="wp-image-"] {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.wp-caption .wp-caption-text {
-  margin: 0.8075em 0;
-}
-
-.wp-caption-text {
-  text-align: center;
-}
-
-.gallery {
-  margin-bottom: 1.5em;
-}
-
-.gallery-item {
-  display: inline-block;
-  text-align: center;
-  vertical-align: top;
-  width: 100%;
-}
-
-.gallery-columns-2 .gallery-item {
-  max-width: 50%;
-}
-
-.gallery-columns-3 .gallery-item {
-  max-width: 33.33%;
-}
-
-.gallery-columns-4 .gallery-item {
-  max-width: 25%;
-}
-
-.gallery-columns-5 .gallery-item {
-  max-width: 20%;
-}
-
-.gallery-columns-6 .gallery-item {
-  max-width: 16.66%;
-}
-
-.gallery-columns-7 .gallery-item {
-  max-width: 14.28%;
-}
-
-.gallery-columns-8 .gallery-item {
-  max-width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-  max-width: 11.11%;
-}
-
-.gallery-caption {
-  display: block;
-}
-
-/*--------------------------------------------------------------
-# Custom
---------------------------------------------------------------*/
-html {
-  font-size: 42%;
-}
-
-body {
-  -ms-word-wrap: break-word;
-  word-wrap: break-word;
-  -webkit-font-smoothing: auto;
-  text-rendering: optimizeLegibility !important;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: auto;
-  color: #333;
-}
-
-a,
-button,
-input {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-blockquote {
-  font-size: 1.25rem;
-  padding: 1.25rem 1.75rem;
-}
-
-table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
-}
-
-table th,
-table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-
-table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
-}
-
-table tbody + tbody {
-  border-top: 2px solid #dee2e6;
-}
-
-table table {
-  background-color: #fff;
-}
-
-figcaption {
-  padding-top: 0;
-  padding-bottom: 0.75rem;
-  color: #6c757d;
-  text-align: left;
-}
-
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  padding: 0.5rem 1.25rem;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-input[type="button"]:active,
-input[type="button"]:hover,
-input[type="reset"]:active,
-input[type="reset"]:hover,
-input[type="submit"]:active,
-input[type="submit"]:hover {
-  color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
-  cursor: pointer;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  -webkit-transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
-textarea:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-input[type="text"]:-webkit-input-placeholder,
-input[type="text"]:-moz-placeholder,
-input[type="text"]:-ms-input-placeholder,
-input[type="email"]:-webkit-input-placeholder,
-input[type="email"]:-moz-placeholder,
-input[type="email"]:-ms-input-placeholder,
-input[type="url"]:-webkit-input-placeholder,
-input[type="url"]:-moz-placeholder,
-input[type="url"]:-ms-input-placeholder,
-input[type="password"]:-webkit-input-placeholder,
-input[type="password"]:-moz-placeholder,
-input[type="password"]:-ms-input-placeholder,
-input[type="search"]:-webkit-input-placeholder,
-input[type="search"]:-moz-placeholder,
-input[type="search"]:-ms-input-placeholder,
-input[type="number"]:-webkit-input-placeholder,
-input[type="number"]:-moz-placeholder,
-input[type="number"]:-ms-input-placeholder,
-input[type="tel"]:-webkit-input-placeholder,
-input[type="tel"]:-moz-placeholder,
-input[type="tel"]:-ms-input-placeholder,
-input[type="range"]:-webkit-input-placeholder,
-input[type="range"]:-moz-placeholder,
-input[type="range"]:-ms-input-placeholder,
-input[type="date"]:-webkit-input-placeholder,
-input[type="date"]:-moz-placeholder,
-input[type="date"]:-ms-input-placeholder,
-input[type="month"]:-webkit-input-placeholder,
-input[type="month"]:-moz-placeholder,
-input[type="month"]:-ms-input-placeholder,
-input[type="week"]:-webkit-input-placeholder,
-input[type="week"]:-moz-placeholder,
-input[type="week"]:-ms-input-placeholder,
-input[type="time"]:-webkit-input-placeholder,
-input[type="time"]:-moz-placeholder,
-input[type="time"]:-ms-input-placeholder,
-input[type="datetime"]:-webkit-input-placeholder,
-input[type="datetime"]:-moz-placeholder,
-input[type="datetime"]:-ms-input-placeholder,
-input[type="datetime-local"]:-webkit-input-placeholder,
-input[type="datetime-local"]:-moz-placeholder,
-input[type="datetime-local"]:-ms-input-placeholder,
-input[type="color"]:-webkit-input-placeholder,
-input[type="color"]:-moz-placeholder,
-input[type="color"]:-ms-input-placeholder,
-textarea:-webkit-input-placeholder,
-textarea:-moz-placeholder,
-textarea:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-select {
-  height: calc(2.25rem + 2px);
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  -webkit-transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-}
-
-blockquote {
-  font-style: italic;
-  font-size: 1.15rem;
-  border-left: 3px solid rgba(33, 37, 41, 0.25);
-  padding: 0.5rem 1.75rem;
-  background: rgba(33, 37, 41, 0.05);
-}
-
-blockquote p {
-  font-size: 1.15rem;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-
-/*------------- Id integrator-----------*/
 .row {
   margin-right: -8px;
   margin-left: -8px;
@@ -617,19 +207,11 @@ blockquote p:last-child {
 .h2 {
   font-size: 3.6rem;
   line-height: 5rem;
-}
-
-.site-content {
-  font-size: 2.1rem;
-  line-height: 3.6rem;
+  font-family: "ProximaNovaBold", Arial, Helvetica, sans-serif;
 }
 
 .site-main {
-  margin-bottom: 3rem;
-}
-
-.site-content a {
-  color: #2699fb;
+  margin-bottom: 6rem;
 }
 
 .table-lg td {
@@ -665,12 +247,12 @@ blockquote p:last-child {
 
 .footer-contacts .contacts-title {
   color: #999;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .footer-contacts .phone-number {
   font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .footer-contacts .contacts-email {
@@ -694,6 +276,10 @@ blockquote p:last-child {
   text-align: left;
 }
 
+.footer-nav .nav-link {
+  padding: 0.1rem 0;
+}
+
 .footer-nav .active .nav-link {
   color: #2699fb;
   opacity: 1;
@@ -701,14 +287,18 @@ blockquote p:last-child {
 
 .footer-copyright {
   color: #bcbcbc;
-  max-width: 570px;
-  padding: 2rem 0;
-  font-size: 1.6rem;
-  line-height: 1.8rem;
+  max-width: 550px;
+  padding: 1.3rem 0;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+}
+
+.footer-copyright p {
+  margin-bottom: 1.6rem;
 }
 
 .footer-copyright small {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .comment-navigation .nav-next,
@@ -732,8 +322,8 @@ blockquote p:last-child {
   display: inline-block;
 }
 
-.entry-title {
-  margin-bottom: 5rem;
+.entry-header {
+  margin-bottom: 4.5rem;
 }
 
 .entry-content p {
@@ -910,7 +500,7 @@ select {
 }
 
 .navbar {
-  padding: 1rem 0;
+  padding: 1.2rem 0;
 }
 
 #wp-bp-posts-slider .carousel-item img {
@@ -956,17 +546,17 @@ select {
   line-height: 4rem;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-  letter-spacing: 1px;
 }
 
 #wp-bp-posts-slider .item-description {
-  font-size: 1.8rem;
+  font-size: 2.1rem;
+  line-height: 2.8rem;
 }
 
 .site-branding-logo {
   display: inline-block;
-  width: 85px;
-  height: 28px;
+  width: 174px;
+  height: 36px;
   margin: 0.2rem auto;
 }
 
@@ -983,19 +573,27 @@ select {
   padding: 2rem 0;
 }
 
+.footer .nav-link {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
 .navbar-light .navbar-nav .nav-item {
-  margin: 1.6rem 0.9rem;
   text-align: center;
+  margin: 1.6rem 0.9rem;
 }
 
 .navbar-light .navbar-nav .nav-link,
 .footer .nav-link {
+  font-family: "ProximaNovaBold", Arial, Helvetica, sans-serif;
   color: #000;
   opacity: 0.75;
   font-size: 1.8rem;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
@@ -1040,7 +638,7 @@ select {
   border: none;
   position: absolute;
   right: 0;
-  top: 2rem;
+  top: 2.7rem;
   padding: 0;
   opacity: 0.7;
 }
@@ -1068,8 +666,9 @@ select {
   display: inline-flex;
   width: 16px;
   height: 16px;
-  margin-top: 5px;
+  margin-top: 3px;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .search-trigger img {
@@ -1079,6 +678,7 @@ select {
 
 .site-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  line-height: 2rem;
 }
 
 body.custom-background .wp-bp-main-content .col-md-8 {
@@ -1122,7 +722,7 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 }
 
 .wp-bp-services-section {
-  padding: 4rem 0;
+  padding: 4.5rem 0 5rem;
 }
 
 .wp-bp-services-section .card {
@@ -1147,8 +747,8 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 }
 
 .wp-bp-services-section .card-body {
-  font-size: 1.6rem;
-  line-height: 1.8rem;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
   padding: 2.5rem 3rem;
   color: #fff;
   min-height: 11rem;
@@ -1212,6 +812,7 @@ body.custom-background .wp-bp-main-content .col-md-8 {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 0;
 }
 
 .clients-section .client-logo img {
@@ -1222,13 +823,19 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 # About us
 -----------------------------------*/
 .projects-block {
-  margin: 2rem 0 3rem;
+  margin: 2rem 0 4rem;
   line-height: 2.6rem;
 }
 
 .projects-block h3 {
   color: #2699fb;
-  font-size: 4.6rem;
+  font-size: 5rem;
+  line-height: 6rem;
+  margin: 0;
+}
+
+.projects-block span {
+  font-family: "ProximaNovaLight", Arial, Helvetica, sans-serif;
 }
 
 .projects-block .project {
@@ -1250,10 +857,11 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 # FAQ
 -----------------------------------*/
 .faq-title {
-  margin-top: 7.4rem;
+  margin: 7.4rem 0 3.6rem;
 }
 
 .ufaq-faq-div {
+  font-family: "ProximaNovaLight", Arial, Helvetica, sans-serif;
   margin-bottom: 3rem;
   padding-left: 0.8rem;
 }
@@ -1370,6 +978,141 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 .category-product-title {
   color: #fff;
 }
+
+.category-sup-title {
+  margin: 0 0 1rem;
+  line-height: 2.8rem;
+}
+
+/*-----------------------------------
+# Product
+-----------------------------------*/
+.woocommerce-product-gallery {
+  margin-bottom: 4rem;
+}
+
+.woocommerce-product-details__sku {
+  color: #6f6f6f;
+  font-size: 1.8rem;
+}
+
+.woocommerce-product-gallery__wrapper {
+  margin: 0;
+}
+
+.woocommerce-product-gallery__image {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.woocommerce-product-details__product-description {
+  font-size: 2.1rem;
+  line-height: 3.4rem;
+}
+
+.woocommerce-product-details__short-description {
+  border-bottom: 1px solid #e3e3e3;
+  padding: 0 0 2rem;
+  margin: 0 0 2rem;
+}
+
+.woocommerce-product-details__price {
+  margin-bottom: 7rem;
+}
+
+.woocommerce-product-details__price .woocommerce-Price-amount.amount {
+  font-size: 3.6rem;
+  line-height: 5rem;
+  font-family: "ProximaNovaBold", Arial, Helvetica, sans-serif;
+  color: #2699fb;
+}
+
+.single-product
+  div.product
+  div.woocommerce-product-gallery
+  .flex-control-thumbs {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -2%;
+  margin-left: -2%;
+}
+
+.single-product
+  div.product
+  div.woocommerce-product-gallery
+  .flex-control-thumbs
+  li {
+  -ms-flex: 0 0 16%;
+  flex: 0 0 16%;
+  max-width: 16%;
+  width: auto !important;
+  margin: 0 2% 0.8rem;
+  overflow: hidden;
+  display: block;
+  border-radius: 5px;
+}
+
+.entry-list-item {
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.entry-list-item + .entry-list-item {
+  border-top: 1px solid #e3e3e3;
+  padding: 3rem 0 1rem;
+}
+
+.entry-list-summary {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+/*-----------------------------------
+# Search
+-----------------------------------*/
+.search-modal {
+  top: 10rem;
+}
+
+.search-modal .modal-dialog {
+  max-width: 700px;
+  padding: 0 8px;
+}
+
+.search-modal .modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.searchform .search-input-wrap {
+  position: relative;
+  line-height: 1.8rem;
+}
+
+.searchform .form-control-lg {
+  padding: 2.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.searchform .search-icon {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.4rem;
+  opacity: 0.4;
+}
+
+.searchform .search-icon img {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.searchform .form-control {
+  padding-left: 4.6rem;
+}
+
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
@@ -1389,7 +1132,7 @@ body.custom-background .wp-bp-main-content .col-md-8 {
     height: 47px;
   }
   .navbar-light .navbar-toggler {
-    top: 3.7rem;
+    top: 4.8rem;
   }
   .navbar-toggler .navbar-toggler-icon {
     width: 3.4rem;
@@ -1397,40 +1140,25 @@ body.custom-background .wp-bp-main-content .col-md-8 {
   }
   .wp-bp-services-section .card-title {
     top: 2rem;
-    padding: 0 2rem;
   }
   .wp-bp-services-section .card-body {
     font-size: 1.6rem;
     line-height: 1.8rem;
-    padding: 2rem;
+    padding: 1.5rem 3rem;
     min-height: 11rem;
   }
   .clients-section .client-logo img {
     margin: 0;
   }
-  .footer-horisontal-menu ul {
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
   .footer-copyright {
     font-size: 1.4rem;
-    line-height: 1.6rem;
   }
   .footer-copyright small {
     font-size: 1.2rem;
+    line-height: 1.6rem;
   }
   .footer-contacts {
-    margin-bottom: 1rem;
-  }
-  .footer-contacts .contacts-title {
-    font-size: 1rem;
-  }
-  .footer-contacts .phone-number {
-    font-size: 1.6rem;
-  }
-  .footer-contacts .contacts-email {
-    margin-top: 2rem;
-    font-size: 1.2rem;
+    margin-bottom: 0;
   }
   .projects-block .project {
     width: 240px;
@@ -1457,6 +1185,30 @@ body.custom-background .wp-bp-main-content .col-md-8 {
   html {
     font-size: 62.5%;
   }
+  .footer {
+    padding-bottom: 3rem;
+    line-height: 2rem;
+  }
+  .footer .nav-link {
+    margin: 0;
+  }
+  .footer-horisontal-menu ul {
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  .footer-contacts .contacts-title {
+    font-size: 1.2rem;
+  }
+  .footer-contacts .phone-number {
+    font-size: 1.6rem;
+  }
+  .footer-contacts .contacts-email {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  .navbar {
+    padding: 1rem 0;
+  }
   .main-navigation {
     height: 110px;
   }
@@ -1471,32 +1223,29 @@ body.custom-background .wp-bp-main-content .col-md-8 {
   }
   .navbar-light .navbar-nav .nav-link,
   .footer .nav-link {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   #wp-bp-posts-slider .carousel-item img {
     height: 500px;
   }
   #wp-bp-posts-slider .item-title {
-    font-size: 5rem;
-    line-height: 6.5rem;
+    font-size: 6rem;
+    line-height: 7.3rem;
     margin-top: 5rem;
-    margin-bottom: 1rem;
-    width: 768px;
+    max-width: 800px;
   }
   #wp-bp-posts-slider .item-description {
     width: 560px;
     font-size: 2rem;
+    line-height: 3rem;
   }
   #wp-bp-posts-slider .carousel-caption {
     padding: 2rem 4rem;
   }
   .wp-bp-services-section .card-body {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
     min-height: 10rem;
-  }
-  .clients-section .section-title {
-    font-size: 3.2rem;
   }
   .footer-horisontal-menu .navbar-nav {
     margin-left: auto;
@@ -1507,6 +1256,10 @@ body.custom-background .wp-bp-main-content .col-md-8 {
   .ufaq-faq-body {
     font-size: 1.6rem;
     line-height: 2rem;
+  }
+  .woocommerce-product-details__product-description {
+    font-size: 1.8rem;
+    line-height: 3rem;
   }
 }
 

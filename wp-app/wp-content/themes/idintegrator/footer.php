@@ -45,7 +45,7 @@
 					<?php
 						$items_wrap = '<ul id="%1$s" class="%2$s">';
 						$items_wrap .= '<li class="nav-item  d-none d-lg-block">';
-						$items_wrap .= '<a href="#" class="search-trigger"><img src="/wp-content/themes/idintegrator/assets/images/search.svg" /></a>';
+						$items_wrap .= '<a class="search-trigger" data-toggle="modal" data-target="#searchModal"><img src="/wp-content/themes/idintegrator/assets/images/search.svg" /></a>';
 						$items_wrap .= '</li>';
 						$items_wrap .= '%3$s</ul>';
 
@@ -76,6 +76,14 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<div class="modal fade search-modal" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<?php get_search_form(); ?>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

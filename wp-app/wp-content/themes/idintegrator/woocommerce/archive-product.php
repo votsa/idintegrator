@@ -30,17 +30,19 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 <header class="entry-header mt-6">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
-		$product_cat_id = get_queried_object_id();
-		$parentcats = get_ancestors($product_cat_id, 'product_cat');
-		$parentcat = $parentcats[0];
+	<div class="category-sup-title">
+		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+			$product_cat_id = get_queried_object_id();
+			$parentcats = get_ancestors($product_cat_id, 'product_cat');
+			$parentcat = $parentcats[0];
 
-		if( $term = get_term_by( 'id', $parentcat, 'product_cat' ) ) {
-			echo $term->name;
-		}
-	} ?>
+			if( $term = get_term_by( 'id', $parentcat, 'product_cat' ) ) {
+				echo $term->name;
+			}
+		} ?>
+	</div>
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="entry-title card-title h2"><?php woocommerce_page_title(); ?></h1>
+		<h1 class="entry-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
 
 	<?php

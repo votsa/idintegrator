@@ -1,0 +1,6 @@
+2019-03-10T20:17:14+00:00 CRITICAL require(): Failed opening required '/var/www/html/wp-content/themes/idintegrator/inc/theme-options/class-theme-kirki.php' (include_path='.:/usr/local/lib/php') в /var/www/html/wp-content/themes/idintegrator/inc/theme-options/add-settings.php на строке 3
+
+2019-03-10T20:17:20+00:00 CRITICAL require(): Failed opening required '/var/www/html/wp-content/themes/idintegrator/inc/theme-options/class-theme-kirki.php' (include_path='.:/usr/local/lib/php') в /var/www/html/wp-content/themes/idintegrator/inc/theme-options/add-settings.php на строке 3
+
+2019-03-10T20:17:20+00:00 CRITICAL require(): Failed opening required '/var/www/html/wp-content/themes/idintegrator/inc/theme-options/class-theme-kirki.php' (include_path='.:/usr/local/lib/php') в /var/www/html/wp-content/themes/idintegrator/inc/theme-options/add-settings.php на строке 3
+

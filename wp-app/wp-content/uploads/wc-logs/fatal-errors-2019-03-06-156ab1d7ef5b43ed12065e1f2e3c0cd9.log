@@ -1,0 +1,10 @@
+2019-03-06T19:16:26+00:00 CRITICAL syntax error, unexpected '?' в /var/www/html/wp-content/themes/idintegrator/page-templates/catalog-categories.php на строке 20
+
+2019-03-06T19:16:39+00:00 CRITICAL syntax error, unexpected '?' в /var/www/html/wp-content/themes/idintegrator/page-templates/catalog-categories.php на строке 20
+
+2019-03-06T20:18:13+00:00 CRITICAL Object of class WP_Term could not be converted to string в /var/www/html/wp-content/themes/idintegrator/page-templates/catalog-categories.php на строке 35
+
+2019-03-06T20:47:00+00:00 CRITICAL syntax error, unexpected '$child_product_cats' (T_VARIABLE) в /var/www/html/wp-content/themes/idintegrator/page-templates/catalog-categories.php на строке 34
+
+2019-03-06T20:48:05+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH), expecting ',' or ';' в /var/www/html/wp-content/themes/idintegrator/page-templates/catalog-categories.php на строке 35
+

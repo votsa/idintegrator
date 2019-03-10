@@ -352,4 +352,4 @@ if ( ! class_exists ( 'Id_integrator_Kirki' )) :
 		}
 	}
 endif;
-new Id_integrator_Kirki();
+//new Id_integrator_Kirki();

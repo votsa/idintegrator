@@ -1,0 +1,40 @@
+2019-03-01T16:10:56+00:00 CRITICAL syntax error, unexpected 'template_directory' (T_STRING), expecting ')' в /var/www/html/wp-content/themes/idintegrator/header.php на строке 84
+
+2019-03-01T16:22:05+00:00 CRITICAL syntax error, unexpected '?' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:22:25+00:00 CRITICAL syntax error, unexpected '?' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:22:32+00:00 CRITICAL syntax error, unexpected '?' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:22:42+00:00 CRITICAL syntax error, unexpected '<' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:24:42+00:00 CRITICAL syntax error, unexpected '.' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:24:54+00:00 CRITICAL syntax error, unexpected '.' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:26:01+00:00 CRITICAL syntax error, unexpected '" . bloginfo('template_directo' (T_CONSTANT_ENCAPSED_STRING) в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:26:32+00:00 CRITICAL syntax error, unexpected '.' в /var/www/html/wp-content/themes/idintegrator/inc/custom-navbar.php на строке 25
+
+2019-03-01T16:54:01+00:00 CRITICAL syntax error, unexpected 'echo' (T_ECHO) в /var/www/html/wp-content/themes/idintegrator/header.php на строке 82
+
+2019-03-01T16:55:11+00:00 CRITICAL syntax error, unexpected 'wp_nav_menu' (T_STRING) в /var/www/html/wp-content/themes/idintegrator/header.php на строке 75
+
+2019-03-01T19:25:41+00:00 CRITICAL syntax error, unexpected ':' в /var/www/html/wp-content/themes/idintegrator/index.php на строке 37
+
+2019-03-01T19:26:35+00:00 CRITICAL syntax error, unexpected ':' в /var/www/html/wp-content/themes/idintegrator/index.php на строке 37
+
+2019-03-01T19:27:12+00:00 CRITICAL syntax error, unexpected 'else' (T_ELSE) в /var/www/html/wp-content/themes/idintegrator/index.php на строке 42
+
+2019-03-01T19:28:02+00:00 CRITICAL syntax error, unexpected ':' в /var/www/html/wp-content/themes/idintegrator/index.php на строке 37
+
+2019-03-01T19:28:17+00:00 CRITICAL syntax error, unexpected 'else' (T_ELSE) в /var/www/html/wp-content/themes/idintegrator/index.php на строке 41
+
+2019-03-01T19:28:31+00:00 CRITICAL syntax error, unexpected 'else' (T_ELSE), expecting end of file в /var/www/html/wp-content/themes/idintegrator/index.php на строке 40
+
+2019-03-01T19:29:19+00:00 CRITICAL syntax error, unexpected ':' в /var/www/html/wp-content/themes/idintegrator/index.php на строке 37
+
+2019-03-01T19:29:36+00:00 CRITICAL syntax error, unexpected 'else' (T_ELSE), expecting end of file в /var/www/html/wp-content/themes/idintegrator/index.php на строке 38
+
+2019-03-01T19:40:08+00:00 CRITICAL Maximum execution time of 600 seconds exceeded в /var/www/html/wp-includes/query.php на строке 864
+

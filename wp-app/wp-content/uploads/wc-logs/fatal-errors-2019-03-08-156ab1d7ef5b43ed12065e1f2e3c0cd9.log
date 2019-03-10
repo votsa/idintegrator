@@ -1,0 +1,6 @@
+2019-03-08T19:30:22+00:00 CRITICAL syntax error, unexpected 'template_directory' (T_STRING), expecting ',' or ';' в /var/www/html/wp-content/themes/idintegrator/template-parts/front-page/categories.php на строке 29
+
+2019-03-08T19:30:52+00:00 CRITICAL syntax error, unexpected 'template_directory' (T_STRING), expecting ',' or ';' в /var/www/html/wp-content/themes/idintegrator/template-parts/front-page/categories.php на строке 29
+
+2019-03-08T19:31:28+00:00 CRITICAL syntax error, unexpected 'template_directory' (T_STRING), expecting ',' or ';' в /var/www/html/wp-content/themes/idintegrator/template-parts/front-page/categories.php на строке 23
+

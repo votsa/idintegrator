@@ -20,7 +20,7 @@ get_header(); ?>
 				get_template_part( 'template-parts/posts-slider' );
 			}
 
-			get_template_part( 'template-parts/front-page/services' );
+			get_template_part( 'template-parts/front-page/categories' );
 		} else {
 			get_template_part( 'template-parts/content', 'none' );
 		}

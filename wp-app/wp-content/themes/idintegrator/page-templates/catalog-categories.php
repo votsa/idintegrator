@@ -18,9 +18,9 @@ get_header();
 	echo '
 		<div class="catalog-category-row ' . $background_styles[$i] . '">
 			<div class="container">
-				<h2 class="catalog-category-title h2">
+				<h1 class="catalog-category-title">
 					<a href="'.get_term_link($parent_product_cat->term_id).'">'.$parent_product_cat->name.'</a>
-				</h2>
+				</h1>
 				<div class="catalog-category-descr">'.$parent_product_cat->description.'</div>
 	';
 		$child_args = array(

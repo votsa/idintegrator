@@ -14,70 +14,43 @@ get_header(); ?>
 ?>
 
 	<div class="container">
-		<div class="row">
+		<main id="main" class="site-main">
 
-			<?php if ( $default_sidebar_position === 'no' ) : ?>
-				<div class="col-md-12 wp-bp-content-width">
-			<?php else : ?>
-				<div class="col-md-8 wp-bp-content-width">
-			<?php endif; ?>
+		<?php
+		if ( have_posts() ) : ?>
 
-				<section id="primary" class="content-area">
-					<main id="main" class="site-main">
+			<header class="entry-header mt-6">
+				<h1 class="entry-title"><?php
+					/* translators: %s: search query. */
+					printf( esc_html__( 'Search Results for: %s', 'id-integrator' ), '<span>' . get_search_query() . '</span>' );
+				?></h1>
+			</header><!-- .page-header -->
 
-					<?php
-					if ( have_posts() ) : ?>
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
 
-						<header class="page-header mt-3r">
-							<h1 class="page-title"><?php
-								/* translators: %s: search query. */
-								printf( esc_html__( 'Search Results for: %s', 'id-integrator' ), '<span>' . get_search_query() . '</span>' );
-							?></h1>
-						</header><!-- .page-header -->
+				/**
+				 * Run the loop for the search to output the results.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-search.php and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', 'search' );
 
-						<?php
-						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+			endwhile;
 
-							/**
-							 * Run the loop for the search to output the results.
-							 * If you want to overload this in a child theme then include a file
-							 * called content-search.php and that will be used instead.
-							 */
-							get_template_part( 'template-parts/content', 'search' );
+			the_posts_navigation( array(
+				'next_text'         => esc_html__( 'Newer Posts', 'id-integrator' ),
+				'prev_text'         => esc_html__( 'Older Posts', 'id-integrator' ),
+			) );
 
-						endwhile;
+		else :
 
-						the_posts_navigation( array(
-							'next_text'         => esc_html__( 'Newer Posts', 'id-integrator' ),
-							'prev_text'         => esc_html__( 'Older Posts', 'id-integrator' ),
-						) );
+			get_template_part( 'template-parts/content', 'none' );
 
-					else :
+		endif; ?>
 
-						get_template_part( 'template-parts/content', 'none' );
-
-					endif; ?>
-
-					</main><!-- #main -->
-				</section><!-- #primary -->
-			</div>
-			<!-- /.col-md-8 -->
-
-			<?php if ( $default_sidebar_position != 'no' ) : ?>
-				<?php if ( $default_sidebar_position === 'right' ) : ?>
-					<div class="col-md-4 wp-bp-sidebar-width">
-				<?php elseif ( $default_sidebar_position === 'left' ) : ?>
-					<div class="col-md-4 order-md-first wp-bp-sidebar-width">
-				<?php endif; ?>
-						<?php get_sidebar(); ?>
-					</div>
-					<!-- /.col-md-4 -->
-			<?php endif; ?>
-		</div>
-		<!-- /.row -->
+		</main>
 	</div>
-	<!-- /.container -->
-
 <?php
 get_footer();

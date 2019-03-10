@@ -55,7 +55,7 @@
 						<?php
 							$items_wrap = '<ul id="%1$s" class="%2$s">';
 							$items_wrap .= '<li class="nav-item d-none d-lg-block">';
-							$items_wrap .= '<a href="#" class="search-trigger"><img src="/wp-content/themes/idintegrator/assets/images/search.svg" /></a>';
+							$items_wrap .= '<a class="search-trigger" data-toggle="modal" data-target="#searchModal"><img src="/wp-content/themes/idintegrator/assets/images/search.svg" /></a>';
 							$items_wrap .= '</li>';
 							$items_wrap .= '%3$s</ul>';
 

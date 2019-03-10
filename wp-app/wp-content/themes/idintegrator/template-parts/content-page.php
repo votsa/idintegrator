@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'mt-6' ); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
 
 	<?php Id_integrator_post_thumbnail(); ?>

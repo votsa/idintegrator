@@ -1,3 +1,6 @@
 <form role="search" method="get" class="searchform id-integrator-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-    <input type="text" class="s form-control" name="s" placeholder="<?php esc_attr_e( 'Search&hellip;', 'id-integrator' ); ?>" value="<?php the_search_query(); ?>" >
+  <div class="search-input-wrap">
+    <span class="search-icon"><img src="/wp-content/themes/idintegrator/assets/images/search.svg" /></span>
+    <input type="text" class="s form-control form-control-lg" name="s" placeholder="<?php esc_attr_e( 'Search&hellip;', 'id-integrator' ); ?>" value="<?php the_search_query(); ?>" />
+  </div>
 </form>
