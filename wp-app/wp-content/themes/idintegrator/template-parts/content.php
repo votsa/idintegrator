@@ -13,7 +13,7 @@
 	<div class="card-body">
 
 		<?php if ( is_sticky() ) : ?>
-			<span class="oi oi-bookmark wp-bp-sticky text-muted" title="<?php echo esc_attr__( 'Sticky Post', 'id-integrator' ); ?>"></span>
+			<span class="oi oi-bookmark wp-bp-sticky text-muted" title="<?php echo esc_attr__( 'Sticky Post', 'idintegrator' ); ?>"></span>
 		<?php endif; ?>
 		<header class="entry-header">
 			<?php
@@ -39,7 +39,7 @@
 					the_content( sprintf(
 						wp_kses(
 							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'id-integrator' ),
+							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'idintegrator' ),
 							array(
 								'span' => array(
 									'class' => array(),
@@ -50,7 +50,7 @@
 					) );
 
 					wp_link_pages( array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'id-integrator' ),
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'idintegrator' ),
 						'after'  => '</div>',
 					) );
 				?>
@@ -59,7 +59,7 @@
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
 				<div class="">
-					<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm"><?php esc_html_e( 'Continue Reading', 'id-integrator' ); ?> <small class="oi oi-chevron-right ml-1"></small></a>
+					<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm"><?php esc_html_e( 'Continue Reading', 'idintegrator' ); ?> <small class="oi oi-chevron-right ml-1"></small></a>
 				</div>
 			</div><!-- .entry-summary -->
 		<?php endif; ?>

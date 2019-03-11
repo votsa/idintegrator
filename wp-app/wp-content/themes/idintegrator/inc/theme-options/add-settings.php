@@ -9,17 +9,17 @@ Id_integrator_Kirki::add_config( 'Id_integrator_theme', array(
 
 Id_integrator_Kirki::add_panel( 'theme_options', array(
     'priority'    => 31,
-    'title'       => esc_html__( 'Theme Options', 'id-integrator' ),
+    'title'       => esc_html__( 'Theme Options', 'idintegrator' ),
 ) );
 
 Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'logo_height',
-	'label'    => esc_html__( 'Logo Height (in px)', 'id-integrator' ),
+	'label'    => esc_html__( 'Logo Height (in px)', 'idintegrator' ),
 	'section'  => 'title_tagline',
 	'type'     => 'number',
 	'priority' => 8,
 	'default'  => 60,
-    'tooltip'  => esc_html__( 'Minimum height 25px & maximum height 200px. Width will be adjusted automatically.', 'id-integrator' ),
+    'tooltip'  => esc_html__( 'Minimum height 25px & maximum height 200px. Width will be adjusted automatically.', 'idintegrator' ),
     'choices'  => array(
 		'min'  => 25,
 		'max'  => 200,
@@ -48,7 +48,7 @@ include( get_template_directory() . '/inc/theme-options/blog-home.php' );
 
 
 Id_integrator_Kirki::add_section( 'upgrade_theme', array(
-    'title'          => esc_html__( 'Get More Features', 'id-integrator' ),
+    'title'          => esc_html__( 'Get More Features', 'idintegrator' ),
     'panel'          => '',
     'capability'     => 'edit_theme_options',
     'theme_supports' => '',
@@ -59,9 +59,9 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'pro_features',
 	'section'  => 'upgrade_theme',
 	'type'     => 'custom',
-    'default'  => '<h2 class="wp-bp-region-title first-region-title">' . esc_html__( 'Upgrade To Pro', 'id-integrator' ) . '</h2>
+    'default'  => '<h2 class="wp-bp-region-title first-region-title">' . esc_html__( 'Upgrade To Pro', 'idintegrator' ) . '</h2>
 					<p>Let\'s make your website even better with the pro version of this theme.</p>
-					<a class="button button-primary button-hero" href="https://bootstrap-wp.com/downloads/id-integrator-pro/" target="_blank">Read More</a>',
+					<a class="button button-primary button-hero" href="https://bootstrap-wp.com/downloads/idintegrator-pro/" target="_blank">Read More</a>',
 ) );
 
 
@@ -71,7 +71,7 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 function Id_integrator_customizer_css()
 {
 	if( class_exists( 'Kirki' ) ) {
-		wp_enqueue_style( 'id-integrator-customizer-css', get_template_directory_uri() . '/inc/theme-options/customizer.css' );
+		wp_enqueue_style( 'idintegrator-customizer-css', get_template_directory_uri() . '/inc/theme-options/customizer.css' );
 	}
 }
 add_action( 'customize_controls_print_styles', 'Id_integrator_customizer_css' );

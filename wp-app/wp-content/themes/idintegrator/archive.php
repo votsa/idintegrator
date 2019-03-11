@@ -49,8 +49,8 @@ get_header(); ?>
 						endwhile;
 
 						the_posts_navigation( array(
-							'next_text' => esc_html__( 'Newer Posts', 'id-integrator' ),
-							'prev_text' => esc_html__( 'Older Posts', 'id-integrator' ),
+							'next_text' => esc_html__( 'Newer Posts', 'idintegrator' ),
+							'prev_text' => esc_html__( 'Older Posts', 'idintegrator' ),
 						) );
 
 					else :

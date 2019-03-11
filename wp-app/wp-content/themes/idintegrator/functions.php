@@ -11,7 +11,7 @@ if ( ! function_exists( 'Id_integrator_setup' ) ) :
 	function Id_integrator_setup() {
 
 		// Make theme available for translation.
-		load_theme_textdomain( 'id-integrator', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'idintegrator', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -30,10 +30,10 @@ if ( ! function_exists( 'Id_integrator_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'id-integrator' ),
-			'menu-2' => esc_html__( 'Secondary', 'id-integrator' ),
-			'menu-3' => esc_html__( 'Primary footer', 'id-integrator' ),
-			'menu-4' => esc_html__( 'Secondary footer', 'id-integrator' ),
+			'menu-1' => esc_html__( 'Primary', 'idintegrator' ),
+			'menu-2' => esc_html__( 'Secondary', 'idintegrator' ),
+			'menu-3' => esc_html__( 'Primary footer', 'idintegrator' ),
+			'menu-4' => esc_html__( 'Secondary footer', 'idintegrator' ),
 		) );
 
 		// Switch default core markup for search form, comment form, and comments
@@ -89,9 +89,9 @@ add_action( 'after_setup_theme', 'Id_integrator_content_width', 0 );
  */
 function Id_integrator_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'id-integrator' ),
+		'name'          => esc_html__( 'Sidebar', 'idintegrator' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'id-integrator' ),
+		'description'   => esc_html__( 'Add widgets here.', 'idintegrator' ),
 		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget-title h6">',
@@ -99,9 +99,9 @@ function Id_integrator_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Column 1', 'id-integrator' ),
+		'name'          => esc_html__( 'Footer Column 1', 'idintegrator' ),
 		'id'            => 'footer-1',
-		'description'   => esc_html__( 'Add widgets here.', 'id-integrator' ),
+		'description'   => esc_html__( 'Add widgets here.', 'idintegrator' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget-title h6">',
@@ -109,9 +109,9 @@ function Id_integrator_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Column 2', 'id-integrator' ),
+		'name'          => esc_html__( 'Footer Column 2', 'idintegrator' ),
 		'id'            => 'footer-2',
-		'description'   => esc_html__( 'Add widgets here.', 'id-integrator' ),
+		'description'   => esc_html__( 'Add widgets here.', 'idintegrator' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget-title h6">',
@@ -119,9 +119,9 @@ function Id_integrator_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Column 3', 'id-integrator' ),
+		'name'          => esc_html__( 'Footer Column 3', 'idintegrator' ),
 		'id'            => 'footer-3',
-		'description'   => esc_html__( 'Add widgets here.', 'id-integrator' ),
+		'description'   => esc_html__( 'Add widgets here.', 'idintegrator' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget-title h6">',
@@ -129,9 +129,9 @@ function Id_integrator_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Column 4', 'id-integrator' ),
+		'name'          => esc_html__( 'Footer Column 4', 'idintegrator' ),
 		'id'            => 'footer-4',
-		'description'   => esc_html__( 'Add widgets here.', 'id-integrator' ),
+		'description'   => esc_html__( 'Add widgets here.', 'idintegrator' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget-title h6">',
@@ -149,7 +149,7 @@ add_action( 'widgets_init', 'Id_integrator_widgets_init' );
 function Id_integrator_scripts() {
 	wp_enqueue_style( 'open-iconic-bootstrap', get_template_directory_uri() . '/assets/css/open-iconic-bootstrap.css', array(), 'v4.0.0', 'all' );
 	wp_enqueue_style( 'bootstrap-4', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), 'v4.0.0', 'all' );
-	wp_enqueue_style( 'id-integrator-style', get_stylesheet_uri(), array(), '1.0.2', 'all' );
+	wp_enqueue_style( 'idintegrator-style', get_stylesheet_uri(), array(), '1.0.2', 'all' );
 
 	wp_enqueue_script( 'bootstrap-4-js', get_template_directory_uri() . '/assets/js/bootstrap.js', array('jquery'), 'v4.0.0', true );
 

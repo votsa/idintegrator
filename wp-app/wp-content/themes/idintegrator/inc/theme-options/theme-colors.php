@@ -2,15 +2,15 @@
 
 if( class_exists( 'Kirki' ) ) {
     function Id_integrator_colors_section( $wp_customize ) {
-        $wp_customize->get_control( 'background_color' )->label = esc_html__( 'Body Background Color', 'id-integrator' );
-        $wp_customize->get_section( 'colors' )->title = esc_html__( 'Theme Colors', 'id-integrator' );
+        $wp_customize->get_control( 'background_color' )->label = esc_html__( 'Body Background Color', 'idintegrator' );
+        $wp_customize->get_section( 'colors' )->title = esc_html__( 'Theme Colors', 'idintegrator' );
     }
     add_action( 'customize_register', 'Id_integrator_colors_section' );
 }
 
 Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'styling_header_bg_color',
-	'label'    => esc_html__( 'Header Background Color', 'id-integrator' ),
+	'label'    => esc_html__( 'Header Background Color', 'idintegrator' ),
 	'section'  => 'colors',
 	'type'     => 'color',
     'default'  => '#343a40',
@@ -27,7 +27,7 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'styling_primary_color',
 	'section'  => 'colors',
 	'type'     => 'color',
-    'label' => esc_html__( 'Links & Buttons Color', 'id-integrator' ),
+    'label' => esc_html__( 'Links & Buttons Color', 'idintegrator' ),
     'default'  => '#007bff',
     'output'   => array(
         array(
@@ -73,7 +73,7 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 
 Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'styling_primary_hover_color',
-	'label'    => esc_html__( 'Links & Buttons Hover Color', 'id-integrator' ),
+	'label'    => esc_html__( 'Links & Buttons Hover Color', 'idintegrator' ),
 	'section'  => 'colors',
 	'type'     => 'color',
     'default'  => '#0069d9',
@@ -106,7 +106,7 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 
 Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'styling_footer_bg_color',
-	'label'    => esc_html__( 'Footer Background Color', 'id-integrator' ),
+	'label'    => esc_html__( 'Footer Background Color', 'idintegrator' ),
 	'section'  => 'colors',
 	'type'     => 'color',
     'default'  => '#ffffff',
@@ -121,7 +121,7 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 
 Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'styling_footer_text_color',
-	'label'    => esc_html__( 'Footer Text Color', 'id-integrator' ),
+	'label'    => esc_html__( 'Footer Text Color', 'idintegrator' ),
 	'section'  => 'colors',
 	'type'     => 'color',
     'default'  => '#6c757d',
@@ -136,7 +136,7 @@ Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 
 Id_integrator_Kirki::add_field( 'Id_integrator_theme', array(
 	'settings' => 'styling_footer_link_color',
-	'label'    => esc_html__( 'Footer Link Color', 'id-integrator' ),
+	'label'    => esc_html__( 'Footer Link Color', 'idintegrator' ),
 	'section'  => 'colors',
 	'type'     => 'color',
     'default'  => '#007bff',

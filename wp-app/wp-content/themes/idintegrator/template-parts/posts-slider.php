@@ -43,7 +43,7 @@ $featured_query = new WP_Query( $args );
                         <div class="container text-left">
                             <h2 class="item-title"><?php the_title(); ?></h2>
                             <p class="item-description"><?php echo esc_html( Id_integrator_get_short_excerpt( 20 ) ); ?></p>
-                            <?php /*<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm"><?php esc_html_e( 'Continue Reading', 'id-integrator' ); ?> <small class="oi oi-chevron-right ml-1"></small></a> */ ?>
+                            <?php /*<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm"><?php esc_html_e( 'Continue Reading', 'idintegrator' ); ?> <small class="oi oi-chevron-right ml-1"></small></a> */ ?>
                         </div>
                     </div>
                 </div>
@@ -53,11 +53,11 @@ $featured_query = new WP_Query( $args );
         <?php /*
         <a class="carousel-control-prev" href="#wp-bp-posts-slider" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only"><?php esc_html_e( 'Previous', 'id-integrator' ); ?></span>
+            <span class="sr-only"><?php esc_html_e( 'Previous', 'idintegrator' ); ?></span>
         </a>
         <a class="carousel-control-next" href="#wp-bp-posts-slider" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only"><?php esc_html_e( 'Next', 'id-integrator' ); ?></span>
+            <span class="sr-only"><?php esc_html_e( 'Next', 'idintegrator' ); ?></span>
         </a>
         */?>
     </div>

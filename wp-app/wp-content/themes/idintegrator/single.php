@@ -31,8 +31,8 @@ get_header(); ?>
 						get_template_part( 'template-parts/content', get_post_type() );
 
 						the_post_navigation(array(
-				            'prev_text' => esc_html__( '&laquo; Previous Post', 'id-integrator' ),
-				            'next_text' => esc_html__( 'Next Post &raquo;', 'id-integrator' ),
+				            'prev_text' => esc_html__( '&laquo; Previous Post', 'idintegrator' ),
+				            'next_text' => esc_html__( 'Next Post &raquo;', 'idintegrator' ),
 				        ) );
 
 						// If comments are open or we have at least one comment, load up the comment template.

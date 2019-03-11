@@ -39,7 +39,7 @@ function Id_integrator_register_required_plugins() {
 	 * Array of configuration settings. Amend each line as needed.
 	 */
 	$config = array(
-		'id'           => 'id-integrator',
+		'id'           => 'idintegrator',
 		'default_path' => '',
 		'menu'         => 'tgmpa-install-plugins',
 		'has_notices'  => true,

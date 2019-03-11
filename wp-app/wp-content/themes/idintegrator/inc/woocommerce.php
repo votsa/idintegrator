@@ -29,7 +29,7 @@ add_action( 'after_setup_theme', 'Id_integrator_woocommerce_setup' );
  * @return void
  */
 function Id_integrator_woocommerce_scripts() {
-	wp_enqueue_style( 'id-integrator-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+	wp_enqueue_style( 'idintegrator-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -43,7 +43,7 @@ function Id_integrator_woocommerce_scripts() {
 			font-style: normal;
 		}';
 
-	wp_add_inline_style( 'id-integrator-woocommerce-style', $inline_font );
+	wp_add_inline_style( 'idintegrator-woocommerce-style', $inline_font );
 }
 add_action( 'wp_enqueue_scripts', 'Id_integrator_woocommerce_scripts' );
 
@@ -263,9 +263,9 @@ if ( ! function_exists( 'Id_integrator_woocommerce_cart_link' ) ) {
 	 */
 	function Id_integrator_woocommerce_cart_link() {
 		?>
-			<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'id-integrator' ); ?>">
+			<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'idintegrator' ); ?>">
 				<?php /* translators: number of items in the mini cart. */ ?>
-				<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'id-integrator' ), WC()->cart->get_cart_contents_count() ) );?></span>
+				<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'idintegrator' ), WC()->cart->get_cart_contents_count() ) );?></span>
 			</a>
 		<?php
 	}

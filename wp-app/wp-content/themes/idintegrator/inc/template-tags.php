@@ -26,13 +26,13 @@ if ( ! function_exists( 'Id_integrator_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'id-integrator' ),
+			esc_html_x( 'Posted on %s', 'post date', 'idintegrator' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'id-integrator' ),
+			esc_html_x( 'by %s', 'post author', 'idintegrator' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -66,7 +66,7 @@ if ( ! function_exists( 'Id_integrator_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'id-integrator' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'idintegrator' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -83,7 +83,7 @@ if ( ! function_exists( 'Id_integrator_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'id-integrator' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'idintegrator' ),
 					array(
 						'span' => array(
 							'class' => array(),

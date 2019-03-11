@@ -22,7 +22,7 @@ get_header(); ?>
 			<header class="entry-header mt-6">
 				<h1 class="entry-title"><?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'id-integrator' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'idintegrator' ), '<span>' . get_search_query() . '</span>' );
 				?></h1>
 			</header><!-- .page-header -->
 
@@ -40,8 +40,8 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_navigation( array(
-				'next_text'         => esc_html__( 'Newer Posts', 'id-integrator' ),
-				'prev_text'         => esc_html__( 'Older Posts', 'id-integrator' ),
+				'next_text'         => esc_html__( 'Newer Posts', 'idintegrator' ),
+				'prev_text'         => esc_html__( 'Older Posts', 'idintegrator' ),
 			) );
 
 		else :

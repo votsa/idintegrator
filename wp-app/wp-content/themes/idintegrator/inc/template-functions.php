@@ -106,7 +106,7 @@ function Id_integrator_get_pll_short_excerpt( $length = 40, $post_obj = null ) {
 * Add Help Page
 */
 function Id_integrator_add_welcome_page() {
-    $_name = esc_html__( 'Theme Help' , 'id-integrator' );
+    $_name = esc_html__( 'Theme Help' , 'idintegrator' );
 
     $theme_page = add_theme_page(
         $_name,
@@ -130,6 +130,6 @@ function Id_integrator_admin_style( $hook ) {
 	if ( 'appearance_page_wp-bp-theme-help' != $hook ) {
 		return;
 	}
-	wp_enqueue_style( 'id-integrator-admin', get_template_directory_uri() . '/assets/css/theme-admin.css' );
+	wp_enqueue_style( 'idintegrator-admin', get_template_directory_uri() . '/assets/css/theme-admin.css' );
 }
 add_action( 'admin_enqueue_scripts' , 'Id_integrator_admin_style' );

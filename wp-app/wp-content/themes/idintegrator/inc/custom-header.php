@@ -31,7 +31,7 @@ function Id_integrator_custom_header_setup() {
 		'desk' => array(
 			'url'           => '%s/assets/images/default-cover-img.jpeg',
 			'thumbnail_url' => '%s/assets/images/default-cover-img.jpeg',
-			'description'   => __( 'Desk', 'id-integrator' )
+			'description'   => __( 'Desk', 'idintegrator' )
 		),
 	) );
 }

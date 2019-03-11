@@ -20,11 +20,11 @@ get_header(); ?>
 				<div class="mt-6">
 					<section class="error-404 not-found">
 						<header class="entry-header">
-							<h1 class="entry-title h2"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'id-integrator' ); ?></h1>
+							<h1 class="entry-title h2"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'idintegrator' ); ?></h1>
 						</header><!-- .page-header -->
 
 						<div class="entry-content">
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'id-integrator' ); ?></p>
+							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'idintegrator' ); ?></p>
 							<div class="row">
 								<div class="col-sm-6">
 								<?php
