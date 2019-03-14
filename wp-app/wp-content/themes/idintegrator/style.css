@@ -932,16 +932,23 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 }
 
 .catalog-sub-category-card {
+  font-family: "ProximaNovaBold", Arial, Helvetica, sans-serif;
   font-size: 2.4rem;
   background-color: transparent;
   border-color: #ccc;
   height: 19rem;
+  border-radius: 0.5rem;
   margin: 1.5rem 0;
   background-size: cover;
   background-position: center;
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.catalog-sub-category-card.has-image {
+  border: none;
 }
 
 .catalog-sub-category-card:hover {
@@ -951,11 +958,61 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 .catalog-sub-category-card a,
 .category-product-card a {
   display: block;
-  padding: 2rem;
   width: 100%;
   height: 100%;
   color: #fff;
   text-decoration: none;
+  position: relative;
+}
+
+.catalog-sub-category-card .catalog-sub-category-image,
+.category-product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 9;
+  background-size: cover;
+  background-position: center;
+}
+
+.catalog-sub-category-card.has-image .catalog-sub-category-image:after,
+.category-product-image.has-image:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.catalog-sub-category-card .title,
+.category-product-card .category-title,
+.category-product-card .category-product-title {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  top: 2rem;
+  z-index: 10;
 }
 
 .catalog-sub-category-card a:hover {
@@ -964,24 +1021,50 @@ body.custom-background .wp-bp-main-content .col-md-8 {
 }
 
 .category-product-card {
-  font-size: 2.4rem;
   background-color: transparent;
   border-color: #ccc;
   height: 28rem;
-  margin: 8px 0;
+  margin: 0 0 16px;
   border-radius: 0.5rem;
   background-size: cover;
   background-position: center;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-product-card.blue {
+  background-color: #2699fb;
+}
+
+.category-product-card.orange {
+  background-color: #ffa558;
+}
+
+.category-product-card.green {
+  background-color: #7eb238;
 }
 
 .category-title,
 .category-product-title {
   color: #fff;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
 }
 
 .category-sup-title {
   margin: 0 0 1rem;
-  line-height: 2.8rem;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+}
+
+.category-sup-title a {
+  color: #6f6f6f;
+  text-decoration: none;
+}
+
+.category-sup-title a:hover {
+  text-decoration: underline;
 }
 
 /*-----------------------------------
@@ -1174,10 +1257,11 @@ body.custom-background .wp-bp-main-content .col-md-8 {
   }
   .catalog-sub-category-card {
     margin: 2.5rem 0;
-    font-size: 2.1rem;
   }
-  .catalog-sub-category-card a {
-    padding: 2rem 2.8rem;
+  .catalog-sub-category-card .title,
+  .category-product-card .category-title {
+    left: 2.8rem;
+    right: 2.8rem;
   }
 }
 

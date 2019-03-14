@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div <?php wc_product_class('col-sm-4'); ?>>
-	<div class="card category-product-card" style="background-image:url('<?php echo woocommerce_subcategory_thumbnail_url($category); ?>')">
+	<div class="card category-product-card <?php echo woocommerce_cat_get_color($category); ?>">
 		<?php
 		/**
 		 * woocommerce_before_subcategory hook.
@@ -46,11 +46,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		do_action( 'woocommerce_after_subcategory_title', $category );
 
-		/**
-		 * woocommerce_after_subcategory hook.
-		 *
-		 * @hooked woocommerce_template_loop_category_link_close - 10
-		 */
-		do_action( 'woocommerce_after_subcategory', $category ); ?>
+		$category_image = woocommerce_subcategory_thumbnail_url($category);
+		$category_class = $category_image ? 'has-image' : 'no-image';
+		?>
+		<div
+			class="category-product-image <?php echo $category_class; ?>"
+			style="background-image:url('<?php echo $category_image; ?>')"></div>
+		<?php
+			/**
+			 * woocommerce_after_subcategory hook.
+			 *
+			 * @hooked woocommerce_template_loop_category_link_close - 10
+			 */
+			do_action( 'woocommerce_after_subcategory', $category );
+		?>
 	</div>
 </div>

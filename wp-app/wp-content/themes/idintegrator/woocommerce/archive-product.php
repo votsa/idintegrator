@@ -37,7 +37,8 @@ do_action( 'woocommerce_before_main_content' );
 			$parentcat = $parentcats[0];
 
 			if( $term = get_term_by( 'id', $parentcat, 'product_cat' ) ) {
-				echo $term->name;
+				$link = get_term_link( $term->term_id, 'product_cat' );
+				echo '<a href="' . $link . '">' . $term->name .'</a>';
 			}
 		} ?>
 	</div>

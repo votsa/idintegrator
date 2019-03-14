@@ -25,7 +25,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <div <?php wc_product_class('col-sm-4'); ?>>
-	<div class="card category-product-card" style="background-image:url('<?php echo woocommerce_product_get_image_url($product); ?>')">
+	<div class="card category-product-card <?php echo woocommerce_cat_get_color($product_cat); ?>">
 	<?php
 		/**
 		 * Hook: woocommerce_before_shop_loop_item.
@@ -57,13 +57,19 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		 */
 		do_action( 'woocommerce_after_shop_loop_item_title' );
 
-		/**
-		 * Hook: woocommerce_after_shop_loop_item.
-		 *
-		 * @hooked woocommerce_template_loop_product_link_close - 5
-		 * @hooked woocommerce_template_loop_add_to_cart - 10
-		 */
-		do_action( 'woocommerce_after_shop_loop_item' );
+		$product_image = woocommerce_product_get_image_url($product);
+		$product_class = $product_image ? 'has-image' : 'no-image';
+		?>
+		<div
+			class="category-product-image <?php echo $product_class; ?>"
+			style="background-image:url('<?php echo $product_image; ?>')"></div>
+		<?php
+			/**
+			 * Hook: woocommerce_after_shop_loop_item.
+			 *
+			 * @hooked woocommerce_template_loop_product_link_close - 5
+			 */
+			do_action( 'woocommerce_after_shop_loop_item' );
 		?>
 	</div>
 </div>

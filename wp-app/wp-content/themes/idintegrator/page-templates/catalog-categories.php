@@ -3,9 +3,6 @@
 * Template Name: Catalog categories
 */
 get_header();
-
-	$background_styles = ['blue', 'orange', 'green'];
-	$i = 0;
 	$args = array(
 		'taxonomy' => 'product_cat',
 		'hide_empty' => false,
@@ -16,7 +13,7 @@ get_header();
 	foreach ($product_cat as $parent_product_cat)
 	{
 	echo '
-		<div class="catalog-category-row ' . $background_styles[$i] . '">
+		<div class="catalog-category-row ' . woocommerce_cat_get_color($parent_product_cat) . '">
 			<div class="container">
 				<h1 class="catalog-category-title">
 					<a href="'.get_term_link($parent_product_cat->term_id).'">'.$parent_product_cat->name.'</a>
@@ -34,10 +31,15 @@ get_header();
 			echo '<div class="row catalog-sub-category-row">';
 			foreach ($child_product_cats as $child_product_cat)
 			{
+				$category_image = woocommerce_subcategory_thumbnail_url($child_product_cat);
+				$category_class = $category_image ? 'has-image' : 'no-image';
 				echo '
 					<div class="col-sm-4">
-						<div class="card catalog-sub-category-card" style="background-image:url(' . woocommerce_subcategory_thumbnail_url($child_product_cat) . ')">
-							<a href="'.get_term_link($child_product_cat->term_id).'">'.$child_product_cat->name.'</a>
+						<div class="card catalog-sub-category-card ' . $category_class . '">
+							<a href="'.get_term_link($child_product_cat->term_id).'">
+								<span class="title">' . $child_product_cat->name . '</span>
+								<div class="catalog-sub-category-image" style="background-image:url(' . $category_image . ')"></div>
+							</a>
 						</div>
 					</div>'
 				;
@@ -49,7 +51,6 @@ get_header();
 				</div>
 			</div>
 		';
-	$i++;
 	}
 
 get_footer();

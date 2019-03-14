@@ -221,7 +221,8 @@ if ( ! function_exists( 'woocommerce_subcategory_thumbnail_url' ) ) {
 			$image_srcset = function_exists( 'wp_get_attachment_image_srcset' ) ? wp_get_attachment_image_srcset( $thumbnail_id, $small_thumbnail_size ) : false;
 			$image_sizes  = function_exists( 'wp_get_attachment_image_sizes' ) ? wp_get_attachment_image_sizes( $thumbnail_id, $small_thumbnail_size ) : false;
 		} else {
-			$image        = wc_placeholder_img_src();
+			//$image        = wc_placeholder_img_src();
+			$image        = false;
 			$image_srcset = false;
 			$image_sizes  = false;
 		}
@@ -259,9 +260,30 @@ if ( ! function_exists( 'woocommerce_product_get_image_url' ) ) {
 		}
 
 		if ( ! $image && $placeholder ) {
-			$image = wc_placeholder_img_src();
+			$image = false;
 		}
 
 		return $image;
+	}
+}
+
+if ( ! function_exists( 'woocommerce_cat_get_color' ) ) {
+
+	/**
+	 * Returns color of category.
+	 *
+	 * @param object $cat.
+	 * @param string $default (default: 'blue').
+	 * @return string
+	 */
+	function woocommerce_cat_get_color($cat, $default = 'blue' ) {
+		$product_cat_id = is_array($cat) ? $cat[0]->term_id : $cat->term_id;
+		$cat_color = get_term_meta($product_cat_id, 'cat_color', true);
+
+		if ( !$cat_color ) {
+			return $default;
+		}
+
+		return $cat_color;
 	}
 }

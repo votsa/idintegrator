@@ -357,6 +357,65 @@ if ( ! function_exists( 'Id_integrator_add_product_gallery_class' ) ) {
 	}
 }
 
+if ( ! function_exists( 'Id_integrator_taxonomy_add_new_meta_field' ) ) {
+
+	function Id_integrator_taxonomy_add_new_meta_field() {
+		$category_colors = array('blue', 'orange', 'green');
+		?>
+		<div class="form-field">
+			<label for="cat_color"><?php _e('Category colour', 'idintegrator'); ?></label>
+			<select name="cat_color" id="cat_color">
+				<?php
+					foreach ($category_colors as $category_color) {
+						echo '<option>' . $category_color . '</option>';
+					}
+				?>
+			</select>
+		</div>
+		<?php
+	}
+}
+
+add_action('product_cat_add_form_fields', 'Id_integrator_taxonomy_add_new_meta_field', 10, 1);
+
+if ( ! function_exists( 'Id_taxonomy_edit_meta_field' ) ) {
+	function Id_taxonomy_edit_meta_field($term) {
+		$category_colors = array('blue', 'orange', 'green');
+		//getting term ID
+		$term_id = $term->term_id;
+		// retrieve the existing value(s) for this meta field.
+		$cat_color = get_term_meta($term_id, 'cat_color', true);
+		?>
+		<tr class="form-field">
+			<th scope="row" valign="top"><label for="cat_color"><?php _e('Category color', 'idintegrator'); ?></label></th>
+			<td>
+				<select name="cat_color" id="cat_color" value="<?php echo esc_attr($cat_color) ? esc_attr($cat_color) : ''; ?>">
+					<?php
+						foreach ($category_colors as $category_color) {
+							$isSelected = $category_color == $cat_color ? 'selected="selected"' : '';
+							echo '<option ' . $isSelected . '>' . $category_color . '</option>';
+						}
+					?>
+				</select>
+			</td>
+		</tr>
+		<?php
+	}
+}
+
+add_action('product_cat_edit_form_fields', 'Id_taxonomy_edit_meta_field', 10, 1);
+
+
+add_action('edited_product_cat', 'Id_integrator_save_taxonomy_custom_meta', 10, 1);
+add_action('create_product_cat', 'Id_integrator_save_taxonomy_custom_meta', 10, 1);
+
+function Id_integrator_save_taxonomy_custom_meta($term_id) {
+	$cat_color = filter_input(INPUT_POST, 'cat_color');
+
+	update_term_meta($term_id, 'cat_color', $cat_color);
+}
+
+
 // SKU
 if ( ! function_exists( 'woocommerce_template_single_sku' ) ) {
 
